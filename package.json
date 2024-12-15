@@ -11,7 +11,7 @@
     "server": "json-server --watch src/jobs.json --port 8000"
   },
   "dependencies": {
-    "bcryptjs": "^2.4.3",
+    "bcryptjs": "^2.4.3", 
     "cookie-parser": "^1.4.7",
     "crypto": "^1.0.1",
     "dotenv": "^16.4.7",
