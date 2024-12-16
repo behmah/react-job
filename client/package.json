@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "start": "node server.js",
+  "homepage": ".",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

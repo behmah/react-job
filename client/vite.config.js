@@ -9,7 +9,7 @@ export default defineConfig({
     host: '0.0.0.0',
     proxy: {
       '/api': {
-        target: 'https://react-job-anz2.onrender.com',
+        target: 'https://react-job-anz2.onrender.com', // Deploy json-server on Render
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       }
