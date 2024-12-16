@@ -10,8 +10,13 @@ const JobsList = ({ isHome = false }) => {
   useEffect(() => {
     const fetchJobs = async () => {
       const apiUrl = isHome ? "?_limit=3" : "";
+      const baseUrl =
+        import.meta.env.MODE === "production"
+          ? "https://react-job-anz2.onrender.com"
+          : "/api"; // Use /api for local development with Vite proxy
+
       try {
-        const res = await fetch(`/api/jobs${apiUrl}`);
+        const res = await fetch(`${baseUrl}/jobs${apiUrl}`);
         const data = await res.json();
         setJobs(data);
       } catch (error) {
