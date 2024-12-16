@@ -3,6 +3,10 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: './', // Ensure Vite uses relative paths
+  build: {
+    outDir: 'build', // This ensures Vite builds into the 'build' folder
+  },
   plugins: [react()],
   server: {
     port: 3000,
