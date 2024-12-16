@@ -9,7 +9,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "json-server --watch src/jobs.json --port 8000"
+    "server": "json-server --watch jobs.json --port 8000"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3", 
