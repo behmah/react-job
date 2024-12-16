@@ -1,8 +1,10 @@
 const jsonServer = require('json-server');
+const cors = require('cors'); // Ensure you require cors
 const server = jsonServer.create();
-const router = jsonServer.router('jobs.json'); // The path to your db.json file
+const router = jsonServer.router('jobs.json');
 const middlewares = jsonServer.defaults();
 
+server.use(cors()); // Enable CORS
 server.use(middlewares);
 server.use(router);
 
