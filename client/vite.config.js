@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: './', // Ensure Vite uses relative paths
   build: {
-    outDir: 'build', // This ensures Vite builds into the 'build' folder
+    outDir: 'dist', // This ensures Vite builds into the 'build' folder
   },
   plugins: [react()],
   server: {
