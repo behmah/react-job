@@ -19,7 +19,7 @@ export default function App() {
       ? "https://react-job-anz2.onrender.com"
       : "/api";
   const addJob = async (newJob) => {
-    await fetch("${baseUrl}/jobs", {
+    await fetch(`${baseUrl}/jobs`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newJob),
