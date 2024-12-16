@@ -18,7 +18,7 @@ const EditJobPage = ({ editJobSubmit }) => {
 
   const navigage = useNavigate();
   const { id } = useParams();
-  const submitForm = (e) => {
+  const submitForm = async (e) => {
     e.preventDefault();
     const updateJob = {
       id,
@@ -34,9 +34,14 @@ const EditJobPage = ({ editJobSubmit }) => {
         contactPhone,
       },
     };
-    editJobSubmit(updateJob);
-    navigage(`/jobs/${id}`);
-    toast.success("Job updated successfully!");
+    try {
+      await editJobSubmit(updateJob); // Await the job update
+      toast.success("Job updated successfully!");
+      navigage(`/jobs/${id}`, { replace: true }); // Reload the page with fresh data
+    } catch (error) {
+      toast.error("Failed to update the job.");
+      console.error("Error updating job:", error);
+    }
   };
   return (
     <section className="bg-indigo-50">
