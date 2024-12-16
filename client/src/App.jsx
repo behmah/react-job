@@ -14,8 +14,12 @@ import EditJobPage from "./pages/EditJobPage";
 
 export default function App() {
   // Add job
+  const baseUrl =
+    import.meta.env.MODE === "production"
+      ? "https://react-job-anz2.onrender.com"
+      : "/api";
   const addJob = async (newJob) => {
-    await fetch("/api/jobs", {
+    await fetch("${baseUrl}/jobs", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newJob),
@@ -25,7 +29,7 @@ export default function App() {
 
   // Edit job
   const editJob = async (job) => {
-    await fetch(`/api/jobs/${job.id}`, {
+    await fetch(`${baseUrl}/jobs/${job.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(job),
@@ -35,7 +39,7 @@ export default function App() {
 
   // Delete job
   const deleteJob = async (id) => {
-    await fetch(`/api/jobs/${id}`, { method: "DELETE" });
+    await fetch(`${baseUrl}/jobs/${id}`, { method: "DELETE" });
     return;
   };
 

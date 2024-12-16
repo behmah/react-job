@@ -108,7 +108,11 @@ const JobPage = ({ deleteJob }) => {
 };
 
 const jobLoader = async ({ params }) => {
-  const res = await fetch(`/api/jobs/${params.id}`);
+  const baseUrl =
+    import.meta.env.MODE === "production"
+      ? "https://react-job-anz2.onrender.com"
+      : "/api";
+  const res = await fetch(`${baseUrl}/jobs/${params.id}`);
   const data = await res.json();
   return data;
 };

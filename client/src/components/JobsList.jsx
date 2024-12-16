@@ -14,7 +14,6 @@ const JobsList = ({ isHome = false }) => {
         import.meta.env.MODE === "production"
           ? "https://react-job-anz2.onrender.com"
           : "/api"; // Use /api for local development with Vite proxy
-
       try {
         const res = await fetch(`${baseUrl}/jobs${apiUrl}`);
         const data = await res.json();
